@@ -13,7 +13,7 @@ public class Board {
     }
   }
   public boolean checkTie() {
-    if(checkWin()) return false;
+    if(checkWin(CellContent.EX) || checkWin(CellContent.ZERO)) return false;
     for(int r = 0; r < Game.ROWS; r++) {
       for(int c = 0; c < Game.COLS; c++) {
         if(cell[r][c].content == CellContent.EMPTY) {
@@ -23,34 +23,34 @@ public class Board {
     }
     return true;
   }
-  public boolean checkWin() {
-    return (checkRows() || checkCols() || checkDiags());
+  public boolean checkWin(CellContent c) {
+    return (checkRows(c) || checkCols(c) || checkDiags(c));
   }
   public void paint(Graphics G) {
     return;
   }
 
-  private boolean checkRows() {
+  private boolean checkRows(CellContent c) {
     for(int i = 0; i < 3; i++) {
-      if((cell[i][0].content == cell[i][1].content) && (cell[i][0].content == cell[i][2].content) && cell[i][0].content != CellContent.EMPTY) {
+      if((cell[i][0].content == cell[i][1].content) && (cell[i][0].content == cell[i][2].content) && cell[i][0].content == c) {
         return true;
       }
     }
     return false;
   }
-  private boolean checkCols() {
+  private boolean checkCols(CellContent c) {
     for(int i = 0; i < 3; i++) {
-      if((cell[0][i].content == cell[1][i].content) && (cell[0][i].content == cell[2][i].content) && cell[0][i].content != CellContent.EMPTY) {
+      if((cell[0][i].content == cell[1][i].content) && (cell[0][i].content == cell[2][i].content) && cell[0][i].content == c) {
         return true;
       }
     }
     return false;
   }
-  private boolean checkDiags() {
-    if((cell[0][0].content == cell[1][1].content) && (cell[0][0].content == cell[2][2].content) && cell[0][0].content != CellContent.EMPTY) {
+  private boolean checkDiags(CellContent c) {
+    if((cell[0][0].content == cell[1][1].content) && (cell[0][0].content == cell[2][2].content) && cell[0][0].content == c) {
       return true;
     }
-    else if((cell[2][0].content == cell[1][1].content) && (cell[2][0].content == cell[0][2].content) && cell[2][0].content != CellContent.EMPTY) {
+    else if((cell[2][0].content == cell[1][1].content) && (cell[2][0].content == cell[0][2].content) && cell[2][0].content == c) {
       return true;
     }
     return false;

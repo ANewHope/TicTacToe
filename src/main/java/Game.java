@@ -26,6 +26,30 @@ public class Game extends JPanel {
     });
   }
   
+  public void init() {
+    for(int r = 0; r < ROWS; r++) {
+      for(int c = 0; c < COLS; c++) {
+        board.cell[r][c].content = CellContent.EMPTY;
+      }
+    }
+    currState = State.IN_PROGRESS;
+    currPlayer = CellContent.EX;
+  }
+
+  public void update(CellContent cont, int row, int col) {
+    if(board.checkWin(cont)) {
+      if(cont == CellContent.EX) {
+        currState = State.EX_WON;
+      }
+      else {
+        currState = State.ZERO_WON;
+      }
+    }
+    else if(board.checkTie()) {
+      currState = State.TIE;
+    }
+  }
+
   @Override
   public void paintComponent(Graphics g) {
     super.paintComponent(g);

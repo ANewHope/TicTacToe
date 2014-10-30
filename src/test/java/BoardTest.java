@@ -13,6 +13,7 @@ public class BoardTest {
 
   @Test
   public void checkWinEmptyBoard() {
-    assertFalse(board.checkWin());
+    assertFalse(board.checkWin(CellContent.ZERO));
+    assertFalse(board.checkWin(CellContent.EX));
   }
 }
