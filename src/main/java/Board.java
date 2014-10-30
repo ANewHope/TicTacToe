@@ -32,25 +32,25 @@ public class Board {
 
   private boolean checkRows() {
     for(int i = 0; i < 3; i++) {
-      if((cell[i][0].content == cell[i][1].content) && (cell[i][0].content == cell[i][2].content)) {
-       return true;
+      if((cell[i][0].content == cell[i][1].content) && (cell[i][0].content == cell[i][2].content) && cell[i][0].content != CellContent.EMPTY) {
+        return true;
       }
     }
     return false;
   }
   private boolean checkCols() {
     for(int i = 0; i < 3; i++) {
-      if((cell[0][i].content == cell[1][i].content) && (cell[0][i].content == cell[2][i].content)) {
+      if((cell[0][i].content == cell[1][i].content) && (cell[0][i].content == cell[2][i].content) && cell[0][i].content != CellContent.EMPTY) {
         return true;
       }
     }
     return false;
   }
   private boolean checkDiags() {
-    if((cell[0][0].content == cell[1][1].content) && (cell[0][0].content == cell[2][2].content)) {
+    if((cell[0][0].content == cell[1][1].content) && (cell[0][0].content == cell[2][2].content) && cell[0][0].content != CellContent.EMPTY) {
       return true;
     }
-    else if((cell[2][0].content == cell[1][1].content) && (cell[2][0].content == cell[0][2].content)) {
+    else if((cell[2][0].content == cell[1][1].content) && (cell[2][0].content == cell[0][2].content) && cell[2][0].content != CellContent.EMPTY) {
       return true;
     }
     return false;
