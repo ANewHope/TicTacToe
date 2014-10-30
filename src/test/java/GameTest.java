@@ -8,6 +8,6 @@ public class GameTest {
   public void checkGame() {
     assertEquals(3, game.ROWS);
     assertEquals(3, game.COLS);
-    assertEquals(100, game.CELL_SIZE);
+    assertEquals(150, game.CELL_SIZE);
   }
 }
