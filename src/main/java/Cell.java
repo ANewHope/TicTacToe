@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public class Cell {
   CellContent content;
   int row, col;

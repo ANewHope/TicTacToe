@@ -1,8 +1,10 @@
-public class Board() {
+import java.awt.*;
+
+public class Board {
   Cell[][] cell;
   public Board() {
-    int rows = GameMain.ROWS;
-    int cols = GameMain.COLS;
+    int rows = Game.ROWS;
+    int cols = Game.COLS;
     cell = new Cell[rows][cols];
     for(int r = 0; r < rows; r++) {
       for(int c = 0; c < cols; c++) {
@@ -12,8 +14,8 @@ public class Board() {
   }
   public boolean checkTie() {
     if(checkWin()) return false;
-    for(int r = 0; r < GameMain.ROWS; r++) {
-      for(int c = 0; c < GameMain.COLS; c++) {
+    for(int r = 0; r < Game.ROWS; r++) {
+      for(int c = 0; c < Game.COLS; c++) {
         if(cell[r][c].content == CellContent.EMPTY) {
           return false;
         }
@@ -25,13 +27,14 @@ public class Board() {
     return (checkRows() || checkCols() || checkDiags());
   }
   public void paint(Graphics G) {
-
+    return;
   }
 
   private boolean checkRows() {
     for(int i = 0; i < 3; i++) {
       if((cell[i][0].content == cell[i][1].content) && (cell[i][0].content == cell[i][2].content)) {
        return true;
+      }
     }
     return false;
   }
