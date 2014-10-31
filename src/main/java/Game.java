@@ -9,6 +9,10 @@ public class Game extends JPanel {
   public static final int CANVAS_WIDTH = CELL_SIZE * COLS;
   public static final int CANVAS_HEIGHT = CELL_SIZE * ROWS;
   public static final int GRID_WIDTH = 10;
+  public static final int GRID_WIDTH_HALF = GRID_WIDTH / 2;
+  public static final int CELL_PADDING = CELL_SIZE / 6;
+  public static final int SYMBOL_SIZE = CELL_SIZE - CELL_PADDING * 2;
+  public static final int SYMBOL_STROKE_WIDTH = 10;
   
   private Board board;
   private State currState;

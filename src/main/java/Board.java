@@ -12,6 +12,14 @@ public class Board {
       }
     }
   }
+  
+  public void init() {
+    for(int r = 0; r < Game.ROWS; r++) {
+      for(int c = 0; c < Game.COLS; c++) {
+        cell[r][c].content = CellContent.EMPTY;
+      }
+    }
+  }
   public boolean checkTie() {
     if(checkWin(CellContent.EX) || checkWin(CellContent.ZERO)) return false;
     for(int r = 0; r < Game.ROWS; r++) {
@@ -26,8 +34,19 @@ public class Board {
   public boolean checkWin(CellContent c) {
     return (checkRows(c) || checkCols(c) || checkDiags(c));
   }
-  public void paint(Graphics G) {
-    return;
+  public void paint(Graphics g) {
+    g.setColor(Color.GRAY);
+    for(int r = 1; r < Game.ROWS; r++) {
+      g.fillRoundRect(0, Game.CELL_SIZE * r - Game.GRID_WIDTH_HALF, Game.CANVAS_WIDTH - 1, Game.GRID_WIDTH, Game.GRID_WIDTH, Game.GRID_WIDTH);
+    }
+    for(int c = 1; c < Game.COLS; c++) {
+      g.fillRoundRect(Game.CELL_SIZE * c - Game.GRID_WIDTH_HALF, 0, Game.GRID_WIDTH, Game.CANVAS_HEIGHT - 1, Game.GRID_WIDTH, Game.GRID_WIDTH);
+    }
+    for(int r = 0; r < Game.ROWS; r++) {
+      for(int c = 0; c < Game.COLS; c++) {
+        cell[r][c].paint(g);
+      }
+    }
   }
 
   private boolean checkRows(CellContent c) {
