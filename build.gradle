@@ -13,5 +13,3 @@ dependencies {
 }
 
 mainClassName = "Game"
-
-task stage { dependsOn installApp }
