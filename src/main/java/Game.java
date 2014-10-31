@@ -9,6 +9,10 @@ public class Game extends JPanel {
   public static final int CANVAS_WIDTH = CELL_SIZE * COLS;
   public static final int CANVAS_HEIGHT = CELL_SIZE * ROWS;
   public static final int GRID_WIDTH = 10;
+  public static final int GRID_WIDTH_HALF = GRID_WIDTH / 2;
+  public static final int CELL_PADDING = CELL_SIZE / 6;
+  public static final int SYMBOL_SIZE = CELL_SIZE - CELL_PADDING * 2;
+  public static final int SYMBOL_STROKE_WIDTH = 10;
   
   private Board board;
   private State currState;
@@ -21,9 +25,36 @@ public class Game extends JPanel {
       public void mouseClicked(MouseEvent e) {
         int x = e.getX();
         int y = e.getY();
-        
+        int r = y / CELL_SIZE;
+        int c = x / CELL_SIZE;
+        if(currState == State.IN_PROGRESS) {
+          if((r >= 0 && r < ROWS) && (c >= 0 && c < COLS) && (board.cell[r][c].content == CellContent.EMPTY)) {
+            board.cell[r][c].content = currPlayer;
+            update(currPlayer, r, c);
+            if(currPlayer == CellContent.EX) {
+              currPlayer = CellContent.ZERO;
+            }
+            else {
+              currPlayer = CellContent.EX;
+            }
+          }
+        }
+        else {
+          init();
+        }
+        repaint();
       }
     });
+    statusBar = new JLabel("      ");
+    statusBar.setFont(new Font(Font.DIALOG_INPUT, Font.BOLD, 14));
+    statusBar.setBorder(BorderFactory.createEmptyBorder(2,5,4,5));
+    statusBar.setOpaque(true);
+    statusBar.setBackground(Color.LIGHT_GRAY);
+    setLayout(new BorderLayout());
+    add(statusBar, BorderLayout.PAGE_END);
+    setPreferredSize(new Dimension(CANVAS_WIDTH, CANVAS_HEIGHT+30));
+    board = new Board();
+    init();
   }
   
   public void init() {

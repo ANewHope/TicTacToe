@@ -1,3 +1,4 @@
 #!/bin/bash
 
 ./gradlew clean
+rm -rf ~/tmp
