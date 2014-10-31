@@ -1,11 +1,9 @@
 #!/bin/bash
 
-./bin/package
-
 if [ ! -d ~/tmp ]; then
     mkdir ~/tmp/
 fi
 
-cp -r build/install/TicTacToe/ ~/tmp/
-cd ~/tmp/TicTacToe/bin
-./TicTacToe
+cp -r ~/TicTacToe/build/libs/TicTacToe.jar ~/tmp/
+cd ~/tmp
+java -cp TicTacToe.jar Game
