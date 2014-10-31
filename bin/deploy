@@ -1,0 +1,11 @@
+#!/bin/bash
+
+./bin/package
+
+if [ ! -d ~/tmp ]; then
+    mkdir ~/tmp/
+fi
+
+cp -r build/install/TicTacToe/ ~/tmp/
+cd ~/tmp/TicTacToe/bin
+./TicTacToe
