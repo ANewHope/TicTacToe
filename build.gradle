@@ -12,4 +12,10 @@ dependencies {
     compile 'com.sparkjava:spark-core:1.1.1'
 }
 
-mainClassName = "Game"
+mainClassName = "GameWeb"
+
+jar{
+    manifest{
+        attributes("Main-Class": "GameWeb")
+    }
+}
