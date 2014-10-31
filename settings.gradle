@@ -16,4 +16,8 @@ include 'api'
 include 'services:webservice'
 */
 
+include 'shared'
+include 'api'
+include 'services:webservice'
+
 rootProject.name = 'TicTacToe'
