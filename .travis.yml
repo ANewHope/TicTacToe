@@ -7,3 +7,8 @@ jdk:
 script:
   - ./gradlew check
   - ./gradlew seleniumXvfb
+
+deploy: 
+  provider: heroku
+  api_key: '7f597213-e308-4cdb-86b1-862c336e8318'
+  app: pacific-temple-3094
