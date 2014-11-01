@@ -7,10 +7,14 @@ A TicTacToe game coded with Java using build automation and Test Driven Developm
 
 Late Term Assignment
 --------------------
-### The Group: A New Hope
-#### Members of the goup are:
-##### Aron Freyr Heiðarsson
-##### Atli Freyr Einarsson
-##### Halldís Una Hreiðarsdóttir
-##### Hallgrímur Þórhallsson
-##### Rannveig Guðmundsdóttir
+#### The Group: A New Hope
+##### Members of the goup are:
+###### Aron Freyr Heiðarsson
+###### Atli Freyr Einarsson
+###### Halldís Una Hreiðarsdóttir
+###### Hallgrímur Þórhallsson
+###### Rannveig Guðmundsdóttir
+
+Test
+----
+![Screeshot](http://handson.provocateuse.com/images/photos/nicolas_cage_04.jpg)
