@@ -61,7 +61,7 @@ task seleniumXvfb(type: Test, dependsOn: installApp) {
     }
 }
 
-
+task stage { dependsOn  installApp }
 
 jar{
     manifest{
