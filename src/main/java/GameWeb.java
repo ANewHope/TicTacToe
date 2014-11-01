@@ -8,28 +8,50 @@ public class GameWeb implements SparkApplication {
     SparkApplication GameWeb = new GameWeb();
     String portNumber = System.getenv("PORT");
     if(portNumber != null) {
-      setPort(Integer.valueOf(portNumber));
+     // setPort(Integer.valueOf(portNumber));
     }
+    setPort(4566);
     GameWeb.init();
   }
-  
+
   public void init() {
     final Game game = new Game();
-    post(new Route("/reset") {
-      @Override
-      public Object handle(Request request, Response response) {
-        game.init();
-        response.status(200);
-        return response;
-      }
-    });
     post(new Route("/playerMove") {
       @Override
       public Object handle(Request request, Response response) {
-        Integer x = Integer.valueOf(request.queryParams("number1"));
-        Integer y = Integer.valueOf(request.queryParams("number2"));
-        return response;
+        Integer x = Integer.valueOf(request.queryParams("first"));
+        Integer y = Integer.valueOf(request.queryParams("second"));
+             if (game.playerMove(x, y)) {
+                    response.status(200);
+
+                    StringBuilder tableBoard = new StringBuilder();
+                    tableBoard.append("<table class=\"table board\" >\n" +
+                            "                <tbody>\n" +
+                            "                <tr>\n" +
+                            "                    <td id=\"00\" class=\"cell\">"+ game.board[0][0] +"</td>\n" +
+                            "                    <td id=\"01\"class=\"cell\">"+ game.board[0][1] +"</td>\n" +
+                            "                    <td id=\"02\"class=\"cell\">"+ game.board[0][2] +"</td>\n" +
+                            "                </tr>\n" +
+                            "                <tr>\n" +
+                            "                    <td id=\"10\"class=\"cell\">"+ game.board[1][0] +"</td>\n" +
+                            "                    <td id=\"11\"class=\"cell\">"+ game.board[1][1] +"</td>\n" +
+                            "                    <td id=\"12\"class=\"cell\">"+ game.board[1][2] +"</td>\n" +
+                            "                </tr>\n" +
+                            "                <tr>\n" +
+                            "                    <td id=\"20\"class=\"cell\">"+ game.board[2][0] +"</td>\n" +
+                            "                    <td id=\"21\"class=\"cell\">"+ game.board[2][1] +"</td>\n" +
+                            "                    <td id=\"22\"class=\"cell\">"+ game.board[2][2] +"</td>\n" +
+                            "                </tr>\n" +
+                            "                </tbody>\n" +
+                            "            </table>");
+
+                    game.nextPlayer();
+                    return tableBoard.toString();
+                }
+            response.status(500);
+            return response;
       }
     });
   }
 }
+
