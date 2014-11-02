@@ -13,9 +13,18 @@ public class GameWeb implements SparkApplication {
     GameWeb.init();
   }
 
+ /**
+  * This method initializes the web application (using Spark)
+  * It creates an instance of the Game Class, and sends 
+  * information about the board and all player moves 
+  * to the site - 
+  * Doing this enables the user to edit information 
+  * that is displayed instantly on the application.
+  */
   public void init() {
     final Game game = new Game();
 
+    // This route resets the game board when the user clicks the button
     post(new Route ("/init") {
          @Override
             public Object handle(Request request, Response response) {
@@ -24,7 +33,14 @@ public class GameWeb implements SparkApplication {
                 return buildTable(game);
             }
          });
-
+    // This route takes in input from the user, x and y coordinates
+    // It then evaluates the input, and the game's state
+    // If the input is legal, a new board with the recent
+    // user input is created and displayed.
+    // If there is a tie, or either player has won, a message
+    // is displayed below the board.
+    // If the game is still going, the method changes
+    // the player and can run again.
     post(new Route("/playerMove") {
       @Override
       public Object handle(Request request, Response response) {
@@ -47,6 +63,13 @@ public class GameWeb implements SparkApplication {
       }
     });
   }
+ /**
+  * This method creates the game board and all it's cells along with content
+  * and returns a StringBuilder containing the board in HTML format
+  *
+  * @param  game  the current game instance
+  * @return StringBuilder HTML-formatted board
+  */ 
   public StringBuilder buildTable(Game game) {
 
     StringBuilder tableBoard = new StringBuilder();
