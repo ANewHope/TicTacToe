@@ -17,6 +17,7 @@ body {
     margin-left:auto;
     width: 50%;
     height: 10cm;
+    border-top: 1px solid black;
 }
 
 tr {
@@ -50,4 +51,5 @@ label {
 }
 button {
     margin-top: 10px;
+    display: inline-block;
 }
