@@ -1,9 +1,11 @@
 public class Board {
   Cell[][] cell;
+  public Content winner;
   public static final int ROWS = 3;
   public static final int COLS = 3;
 
   public Board() {
+    winner = Content.EMPTY;
     int rows = ROWS;
     int cols = COLS;
     cell = new Cell[rows][cols];
@@ -15,6 +17,7 @@ public class Board {
   }
 
   public void init() {
+    winner = Content.EMPTY;
     for(int r = 0; r < ROWS; r++) {
       for(int c = 0; c < COLS; c++) {
         cell[r][c].content = Content.EMPTY;
@@ -35,7 +38,11 @@ public class Board {
   }
 
   public boolean checkWin(Content c) {
-    return (checkRows(c) || checkCols(c) ||checkDiags(c)); 
+    if(checkRows(c) || checkCols(c) || checkDiags(c)) {
+      winner = c;
+      return true;
+    }
+    return false;
   }
 
   public boolean checkRows (Content c) {
