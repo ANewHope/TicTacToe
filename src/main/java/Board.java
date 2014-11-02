@@ -15,7 +15,7 @@ public class Board {
       }
     }
   }
-
+  
   public void init() {
     winner = Content.EMPTY;
     for(int r = 0; r < ROWS; r++) {
@@ -51,6 +51,13 @@ public class Board {
     return false;
   }
 
+ /**
+  * This method checks if a specific player type ('x' or 'o') 
+  * has won by placing 3 in a row. 
+  *
+  * @param  c  the player type (x/o) 
+  * @return    true if player has 3 in a row, false otherwise
+  */
   public boolean checkRows (Content c) {
     for(int i = 0; i < ROWS; i++) {
       if((cell[i][0].content == cell[i][1].content) && (cell[i][0].content == cell[i][2].content) && cell[i][0].content == c) {
