@@ -34,10 +34,10 @@ public class GameWeb implements SparkApplication {
                     StringBuilder table = buildTable(game);
                     response.status(200);
                     if(game.board.checkTie()) {
-                      table.append("<div class=\"alert alert-info\" id=\"results\">" + "It's a tie! " + "Reset the board to play again" + "</div>");
+                      table.append("<div class=\"alert alert-info\" id=\"Results\">" + "It's a tie! " + "Reset the board to play again" + "</div>");
                     }
                     if(game.board.checkWin()) {
-                      table.append("<div class=\"alert alert-info\">" + game.board.winner.toString() + " has obliterated his opponent. " + "Reset the board to play again" + "</div>");
+                      table.append("<div class=\"alert alert-info\" id=\"Results\">" + game.board.winner.toString() + " has obliterated his opponent. " + "Reset the board to play again" + "</div>");
                     }
                     game.nextPlayer();
                     return table;
