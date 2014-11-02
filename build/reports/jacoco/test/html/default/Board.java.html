@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Board.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TicTacToe</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Board.java</span></div><h1>Board.java</h1><pre class="source lang-java linenums">public class Board {
+  Cell[][] cell;
+  public Content winner;
+  public static final int ROWS = 3;
+  public static final int COLS = 3;
+
+<span class="fc" id="L7">  public Board() {</span>
+<span class="fc" id="L8">    winner = Content.EMPTY;</span>
+<span class="fc" id="L9">    int rows = ROWS;</span>
+<span class="fc" id="L10">    int cols = COLS;</span>
+<span class="fc" id="L11">    cell = new Cell[rows][cols];</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">    for(int r = 0; r &lt; rows; r++) {</span>
+<span class="fc bfc" id="L13" title="All 2 branches covered.">      for(int c = 0;  c &lt; cols; c++) {</span>
+<span class="fc" id="L14">        cell[r][c] = new Cell();</span>
+      }
+    }
+<span class="fc" id="L17">  }</span>
+  
+  /**
+  * This method initializes a 3x3 board, with all cells empty.
+  */
+  public void init() {
+<span class="fc" id="L23">    winner = Content.EMPTY;</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">    for(int r = 0; r &lt; ROWS; r++) {</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">      for(int c = 0; c &lt; COLS; c++) {</span>
+<span class="fc" id="L26">        cell[r][c].content = Content.EMPTY;</span>
+      }
+    }
+<span class="fc" id="L29">  }</span>
+
+  /**
+  * This method checks if there is a tie, which only occurs
+  * when there are no empty cells and neither player has won.
+  *
+  * @return    true if there is a tie, false otherwise.
+  */
+  public boolean checkTie() {
+<span class="fc bfc" id="L38" title="All 2 branches covered.">    if(checkWin()) return false;</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">    for(int r = 0; r &lt; ROWS; r++) {</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">      for(int c = 0; c &lt; COLS; c++) {</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        if(cell[r][c].content == Content.EMPTY) {</span>
+<span class="fc" id="L42">          return false;</span>
+        }
+      }
+    }
+<span class="fc" id="L46">    return true;</span>
+  }
+
+  /**
+  * This method checks if either player has won the game.
+  *
+  * @return    true if either player has won the game by 
+  *            placing 3 marks in a straight line
+  */
+  public boolean checkWin() {
+<span class="fc" id="L56">    Content x = Content.EX;</span>
+<span class="fc" id="L57">    Content o = Content.ZERO;</span>
+<span class="pc bpc" id="L58" title="1 of 6 branches missed.">    if(checkRows(x) || checkCols(x) || checkDiags(x)) {</span>
+<span class="fc" id="L59">      winner = x;</span>
+<span class="fc" id="L60">      return true;</span>
+    }
+<span class="pc bpc" id="L62" title="2 of 6 branches missed.">    else if(checkRows(o) || checkCols(o) || checkDiags(o)) {</span>
+<span class="fc" id="L63">      winner = o;</span>
+<span class="fc" id="L64">      return true;</span>
+    }
+<span class="fc" id="L66">    return false;</span>
+  }
+
+ /**
+  * This method checks if a specific player type ('x' or 'o') 
+  * has won by placing 3 in a row. 
+  *
+  * @param  c  the player type (x/o) 
+  * @return    true if player has 3 in a row, false otherwise
+  */
+  public boolean checkRows (Content c) {
+<span class="fc bfc" id="L77" title="All 2 branches covered.">    for(int i = 0; i &lt; ROWS; i++) {</span>
+<span class="fc bfc" id="L78" title="All 6 branches covered.">      if((cell[i][0].content == cell[i][1].content) &amp;&amp; (cell[i][0].content == cell[i][2].content) &amp;&amp; cell[i][0].content == c) {</span>
+<span class="fc" id="L79">        return true;</span>
+      }
+    }
+<span class="fc" id="L82">    return false;</span>
+  }
+
+  /**
+  * This method checks if a specific player type ('x' or 'o')
+  * has won by placing 3 in a column.
+  *
+  * @param  c  the player type (x/o)
+  * @return    true if player has 3 in a column, false otherwise
+  */
+  public boolean checkCols(Content c) {
+<span class="fc bfc" id="L93" title="All 2 branches covered.">    for(int i = 0; i &lt; COLS; i++) {</span>
+<span class="fc bfc" id="L94" title="All 6 branches covered.">      if((cell[0][i].content == cell[1][i].content) &amp;&amp; (cell[0][i].content == cell[2][i].content) &amp;&amp; cell[0][i].content == c) {</span>
+<span class="fc" id="L95">        return true;</span>
+      }
+    }
+<span class="fc" id="L98">    return false;</span>
+  }
+
+  /**
+  * This method checks if a specific player type ('x' or 'o')
+  * has won by placing 3 on a diagonal line.
+  *
+  * @param  c  the player type (x/o)
+  * @return    true if player has 3 on a diagonal, false otherwise
+  */
+  public boolean checkDiags(Content c) {
+<span class="fc bfc" id="L109" title="All 6 branches covered.">    if((cell[0][0].content == cell[1][1].content) &amp;&amp; (cell[0][0].content == cell[2][2].content) &amp;&amp; cell[0][0].content == c) {</span>
+<span class="fc" id="L110">      return true;</span>
+    }
+<span class="pc bpc" id="L112" title="1 of 6 branches missed.">    else if((cell[2][0].content == cell[1][1].content) &amp;&amp; (cell[2][0].content == cell[0][2].content) &amp;&amp; cell[2][0].content == c) {</span>
+<span class="fc" id="L113">      return true;</span>
+    }
+<span class="fc" id="L115">    return false;</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span></div></body></html>

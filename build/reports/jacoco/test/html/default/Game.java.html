@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Game.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TicTacToe</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">Game.java</span></div><h1>Game.java</h1><pre class="source lang-java linenums">import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Game {
+  public Board board;
+  public Content currPlayer;
+  public State currState;
+
+<span class="fc" id="L10">  public Game() {</span>
+<span class="fc" id="L11">    board = new Board();</span>
+<span class="fc" id="L12">    currPlayer = Content.EX;</span>
+<span class="fc" id="L13">    currState = State.ON;</span>
+<span class="fc" id="L14">    board.init();</span>
+<span class="fc" id="L15">  }</span>
+  
+ /**
+  * This method initializes a new game, 'x' has the first move
+  */
+  public void init() {
+<span class="fc" id="L21">    currPlayer = Content.EX;</span>
+<span class="fc" id="L22">    currState = State.ON;</span>
+<span class="fc" id="L23">    board.init();</span>
+<span class="fc" id="L24">  }</span>
+
+ /**
+  * This method checks if a move is legal and places 
+  * the current player's mark if so.
+  *
+  * @param  x  x coordinate of player move
+  * @param  y  y coordinate of player move
+  * @return    true if player mark is placed on (x,y)
+  */
+  public boolean playerMove(int x, int y) {
+<span class="pc bpc" id="L35" title="3 of 8 branches missed.">    if(x &gt;= 0 &amp;&amp; y &gt;= 0 &amp;&amp; x &lt; 3 &amp;&amp; y &lt; 3) {</span>
+<span class="fc bfc" id="L36" title="All 2 branches covered.">      if(board.cell[x][y].content == Content.EMPTY) {</span>
+<span class="fc" id="L37">        board.cell[x][y].content = currPlayer;</span>
+<span class="fc" id="L38">        return true;</span>
+      }
+    }
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">    if(board.checkTie()) {</span>
+<span class="nc" id="L42">      currState = State.TIE;</span>
+<span class="nc" id="L43">      return false;</span>
+    }
+<span class="fc bfc" id="L45" title="All 2 branches covered.">    else if(board.checkWin()) {</span>
+<span class="fc" id="L46">      currState = State.WIN;</span>
+<span class="fc" id="L47">      return false;</span>
+    }
+
+<span class="fc" id="L50">    return false;</span>
+  }
+
+  public void nextPlayer() {
+<span class="fc bfc" id="L54" title="All 2 branches covered.">    if(currPlayer == Content.EX) {</span>
+<span class="fc" id="L55">      currPlayer = Content.ZERO;</span>
+    }
+    else {
+<span class="fc" id="L58">      currPlayer = Content.EX;</span>
+    }
+<span class="fc" id="L60">  }</span>
+
+  public String getPlayer() {
+<span class="fc" id="L63">    return currPlayer.toString();</span>
+  }
+  public static void main(String[] args) {
+
+<span class="nc" id="L67">  }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span></div></body></html>
