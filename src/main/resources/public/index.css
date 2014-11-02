@@ -53,3 +53,7 @@ button {
     margin-top: 10px;
     display: inline-block;
 }
+
+#resetForm {
+    float: right;
+}
