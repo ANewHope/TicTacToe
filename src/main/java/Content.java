@@ -8,13 +8,13 @@ public enum Content {
   EX {
     @Override
     public String toString() {
-      return "x";
+      return "<img src=\"http:\\/\\/i62.tinypic.com\\/20tgthh.jpg\">";
     }
   },
   ZERO {
     @Override
     public String toString() {
-      return "o";
+      return "<img src=\"http:\\/\\/oi60.tinypic.com/iz5hud.jpg\">";
     }
   }
 }
