@@ -22,6 +22,7 @@ public class GameWebTest {
 
   @Test
   public void testTitle() throws Exception {
+    String copy = baseUrl;
     driver.get("http://pacific-temple-3094.herokuapp.com/");
     assertEquals("TicTacToe", driver.getTitle());
   }
