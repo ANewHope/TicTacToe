@@ -21,9 +21,23 @@ public class GameWebTest {
   }
 
   @Test
-  public void testSel() throws Exception {
+  public void testTitle() throws Exception {
     driver.get("http://pacific-temple-3094.herokuapp.com/");
     assertEquals("TicTacToe", driver.getTitle());
+  }
+
+  @Test
+  public void testClear() throws Exception {
+    driver.get("http://pacific-temple-3094.herokuapp.com/");
+    driver.findElement(By.id("first")).clear();
+    driver.findElement(By.id("first")).sendKeys("1");
+    driver.findElement(By.id("second")).clear();
+    driver.findElement(By.id("second")).sendKeys("1");
+    driver.findElement(By.cssSelector("#playerMoveForm > button.btn.btn-default")).click();
+    assertEquals(false, isElementPresent(By.id("#22 > img")));
+    //assertEquals(true, isElementPresent(By.id("#00 > img")));
+    driver.findElement(By.cssSelector("#resetForm > button.btn.btn-default")).click();
+    assertEquals("", driver.findElement(By.id("00")).getText());
   }
 
   @After
