@@ -34,17 +34,20 @@
 					</tr>
 					</tbody>
 				</table>
-			</div>								
+			</div>
+			<div class="form-group">			
 			<form method="post" action="/playerMove" role="form" id="playerMoveForm">
-				<div class="form-group">
-					<label for="first">Input X-coordinates</label>
-					<input type="text" name="first" id="first" class="form-control" placeholder="NO, NO!">
+				<label for="first">Input X-coordinates</label>
+				<input type="text" name="first" id="first" class="form-control" placeholder="NO, NO!">
 
-					<label for="second">Input Y-coordinates</label>
-					<input type="text" name="second" id="second" class="form-control" placeholder="NOT THE BEES!">
+				<label for="second">Input Y-coordinates</label>
+				<input type="text" name="second" id="second" class="form-control" placeholder="NOT THE BEES!">
 				<button type="submit" class="btn btn-default">Submit</button>
-				</div>
 			</form>
+			<form method="post" action="/init" role="form" id="resetForm">
+				<button type="submit" class="btn btn-default">Reset</button>
+			</form>
+			</div>
 		</div>
 	</body>
 </html>
