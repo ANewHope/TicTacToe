@@ -1,36 +1,35 @@
 
 body {
     background-color: rgb(102,255,178);
-    background-image: url('http://pinkie.ponychan.net/chan/files/src/133599977539.jpg');
-	background-repeat: no-repeat;
-	background-size: 100%;
+    background-image: url('http://i62.tinypic.com/343p89z.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 #Results {
-	background-color: white;
-	border-radius: 5px;
-	margin: 15px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 5px;
+    margin: 15px;
 }
 
 .board {
-     background-color:white;
-     margin-right:auto;
-     margin-left:auto;
-     width: 50%;
-     height: 10cm;
+    margin-right:auto;
+    margin-left:auto;
+    width: 50%;
+    height: 10cm;
 }
 
 tr {
-	border: 1px solid black;
+    border: 1px solid black;
 }
 
 td {
-	height: 33.3%;
-    background-color:white;
+    height: 33.3%;
+    background-color: rgba(255,255,255,0.5);
     vertical-align: bottom;
     text-align:center;
-    width: 33%;
-	border: 1px solid black;
+    width: 33.3%;
+    border: 1px solid black;
 }
 
 td img {
@@ -38,17 +37,17 @@ td img {
 }
 
 h1 {
-	color: rgb(102,255,178);
+    color: rgb(102,255,178);
 }
 
 label {
-	color: rgb(102,255,178);
+    color: rgb(102,255,178);
 }
 
 .form-group {
-	width: 50%;
-	margin: auto;
+    width: 50%;
+    margin: auto;
 }
 button {
-	margin-top: 10px;
+    margin-top: 10px;
 }
