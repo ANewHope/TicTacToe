@@ -61,8 +61,6 @@ task seleniumXvfb(type: Test, dependsOn: installApp) {
     }
 }
 
-task stage { dependsOn  installApp }
-
 jar{
     manifest{
         attributes("Main-Class": "GameWeb")
