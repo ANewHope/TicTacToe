@@ -8,7 +8,7 @@ public enum Content {
   EX {
     @Override
     public String toString() {
-      return "<img src=\"http:\\/\\/oi58.tinypic.com/2lxv8s1.jpg\">";
+      return "<img src=\"http:\\/\\/i62.tinypic.com\\/20tgthh.jpg\">";
     }
   },
   ZERO {
