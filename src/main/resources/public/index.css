@@ -1,10 +1,18 @@
-body {
+
+dy {
     background-color: rgb(102,255,178);
     background-image: url('http://pinkie.ponychan.net/chan/files/src/133599977539.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+#Results {
+	background-color: white;
+	border-radius: 5px;
+	margin: 15px;
 }
 
 .board {
-     border:thin black ridge;
      background-color:white;
      margin-right:auto;
      margin-left:auto;
@@ -12,20 +20,35 @@ body {
      height: 10cm;
 }
 
+tr {
+	border: 1px solid black;
+}
+
 td {
-    height: 33.3%;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+	height: 33.3%;
     background-color:white;
-    color:red;
-    font-size:2cm;
-    font-family:Courier New,Courier,monospaced;
-    font-weight:bold;
     vertical-align: bottom;
     text-align:center;
     width: 33%;
+	border: 1px solid black;
 }
 
 td img {
     height: 100%;
+}
+
+h1 {
+	color: rgb(102,255,178);
+}
+
+label {
+	color: rgb(102,255,178);
+}
+
+.form-group {
+	width: 50%;
+	margin: auto;
+}
+button {
+	margin-top: 10px;
 }
