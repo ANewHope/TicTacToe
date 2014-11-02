@@ -13,6 +13,7 @@ body {
     margin: 15px;
     text-color: rgb(102,255,178);
     font-size: 20px;
+    display: inline-block;
 }
 
 .board {
