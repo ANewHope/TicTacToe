@@ -10,10 +10,13 @@ body {
 #Results {
     background-color: rgba(255,255,255,0.5);
     border-radius: 5px;
-    margin: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     text-color: rgb(102,255,178);
     font-size: 20px;
     display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .board {
