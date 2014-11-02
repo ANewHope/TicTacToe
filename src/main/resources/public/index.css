@@ -49,6 +49,11 @@ label {
     width: 50%;
     margin: auto;
 }
+
+form {
+   display: inline-block;
+}
+
 button {
     margin-top: 10px;
     display: inline-block;
