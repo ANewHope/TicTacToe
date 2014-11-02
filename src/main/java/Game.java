@@ -21,11 +21,17 @@ public class Game {
   }
 
   public boolean playerMove(int x, int y) {
+    if(board.checkTie()) { 
+      currState = State.TIE;
+      return false;
+    }
+    else if(board.checkWin()) {
+      currState = State.WIN;
+      return false;
+    }
     if(x >= 0 && y >= 0 && x < 3 && y < 3) {
       if(board.cell[x][y].content == Content.EMPTY) {
         board.cell[x][y].content = currPlayer;
-        if(board.checkTie()) currState = State.TIE;
-        else if(board.checkWin()) currState = State.WIN;
         return true;
       }
     }

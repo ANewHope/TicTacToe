@@ -28,11 +28,11 @@ public class GameWeb implements SparkApplication {
     post(new Route("/playerMove") {
       @Override
       public Object handle(Request request, Response response) {
+        StringBuilder table = buildTable(game);
         Integer x = Integer.valueOf(request.queryParams("first"));
         Integer y = Integer.valueOf(request.queryParams("second"));
              if (game.playerMove(x, y) && game.currState == State.ON) {
                     response.status(200);
-                    StringBuilder table = buildTable(game);
                     if(game.board.checkTie()) {
                       table.append("<div class=\"alert alert-info\">" + "It's a tie! " + "Reset the board to play again" + "</div>");
                     }

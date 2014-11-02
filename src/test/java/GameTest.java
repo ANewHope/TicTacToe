@@ -17,10 +17,11 @@ public class GameTest {
     assertEquals(false, game.playerMove(3,3));
     for(int r = 0; r < 3; r++) {
       for(int c = 0; c < 3; c++) {
-        assertEquals(true, game.playerMove(r,c));
-        assertEquals(Content.EX, game.board.cell[0][0].content);
+        game.playerMove(r,c);
       }
     }
+    assertEquals(Content.EX, game.board.cell[0][0].content);
+    assertEquals(false, game.playerMove(0,0));
     assertEquals(false, game.playerMove(1,1));
   }
   @Test
