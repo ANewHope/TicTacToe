@@ -8,7 +8,7 @@ public class ContentTest {
   }
   @Test
   public void exTest() {
-    assertEquals("<img src=\"http:\\/\\/oi58.tinypic.com/2lxv8s1.jpg\">", Content.EX.toString());
+    assertEquals("<img src=\"http:\\/\\/oi62.tinypic.com/2lxv8s1.jpg\">", Content.EX.toString());
   }
   @Test
   public void zeroTest() {
