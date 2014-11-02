@@ -21,6 +21,11 @@ public class GameWeb implements SparkApplication {
       public Object handle(Request request, Response response) {
         Integer x = Integer.valueOf(request.queryParams("first"));
         Integer y = Integer.valueOf(request.queryParams("second"));
+             if (game.currState == State.TIE) {
+               response.status(200);
+               //return "It's a tie";
+               game.init();
+             }
              if (game.playerMove(x, y)) {
                     response.status(200);
 
