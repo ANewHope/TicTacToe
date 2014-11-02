@@ -11,8 +11,9 @@ body {
     background-color: rgba(255,255,255,0.5);
     border-radius: 5px;
     margin: 15px;
-    font-color: rgb(102,255,178);
+    text-color: rgb(102,255,178);
     font-size: 20px;
+    display: inline-block;
 }
 
 .board {
@@ -42,6 +43,7 @@ td img {
 
 h1 {
     color: rgb(102,255,178);
+    text-align: center;
 }
 
 label {
