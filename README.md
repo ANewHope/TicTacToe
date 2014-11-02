@@ -5,6 +5,10 @@ TicTacToe
 A TicTacToe game coded with Java using build automation and Test Driven Development
 ...
 
+Reports for code coverage and code inspection can be found at the following paths:
+TicTacToe/build/reports/jacoco/test
+TicTacToe/build/reports/findbugs
+
 Late Term Assignment
 --------------------
 #### The Group: A New Hope
