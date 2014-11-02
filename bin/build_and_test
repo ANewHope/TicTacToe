@@ -3,5 +3,7 @@
 ./bin/clean
 ./bin/compile
 ./bin/unit_test
+./bin/seleniumXvfb
+./bin/jacoco
 ./bin/package
 ./bin/deploy
