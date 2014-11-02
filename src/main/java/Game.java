@@ -25,7 +25,7 @@ public class Game {
       if(board.cell[x][y].content == Content.EMPTY) {
         board.cell[x][y].content = currPlayer;
         if(board.checkTie()) currState = State.TIE;
-        else if(board.checkWin(Content.EX) && board.checkWin(Content.ZERO)) currState = State.WIN;
+        else if(board.checkWin()) currState = State.WIN;
         return true;
       }
     }
