@@ -35,5 +35,8 @@ public class Game {
     if (currPlayer == "<img src=\"http:\\/\\/oi60.tinypic.com/iz5hud.jpg\">") {currPlayer = "<img src=\"http:\\/\\/oi58.tinypic.com/2lxv8s1.jpg\">";}
     else {currPlayer = "<img src=\"http:\\/\\/oi60.tinypic.com/iz5hud.jpg\">";}
     }
+  public static void main(String[] args) {
+
+  }
 }
 
