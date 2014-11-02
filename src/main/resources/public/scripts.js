@@ -18,3 +18,17 @@ $(document).ready(function() {
                 event.preventDefault();
             });
         });
+
+$(document).ready(function() {
+            var reset = $('#resetForm');
+            reset.submit(function( event ) {
+                $.ajax({
+                    type: reset.attr('method'),
+                    url: reset.attr('action'),
+                    success: function(test){
+                        $('#boardcontainer').html(test);
+                    },
+                })
+                event.preventDefault();
+            });
+        });
