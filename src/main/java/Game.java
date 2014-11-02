@@ -13,13 +13,24 @@ public class Game {
     currState = State.ON;
     board.init();
   }
-
+  
+ /**
+  * This method initializes a new game, 'x' has the first move
+  */
   public void init() {
     currPlayer = Content.EX;
     currState = State.ON;
     board.init();
   }
 
+ /**
+  * This method checks if a move is legal and places 
+  * the current player's mark if so.
+  *
+  * @param  x  x coordinate of player move
+  * @param  y  y coordinate of player move
+  * @return    true if player mark is placed on (x,y)
+  */
   public boolean playerMove(int x, int y) {
     if(x >= 0 && y >= 0 && x < 3 && y < 3) {
       if(board.cell[x][y].content == Content.EMPTY) {
