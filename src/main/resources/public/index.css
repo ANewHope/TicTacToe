@@ -1,4 +1,5 @@
 body{
+    background-image: url('http://pinkie.ponychan.net/chan/files/src/133599977539.jpg');
     background-color: rgb(102,255,178);
 }
 
@@ -8,19 +9,23 @@ body{
      margin-right:auto;
      margin-left:auto;
      width: 50%;
-	 height: 10cm;
+     height: 10cm;
 }
 
 td {
-	height: 33.3%;
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
-	background-color:white;
+    height: 33.3%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color:white;
     color:red;
     font-size:2cm;
     font-family:Courier New,Courier,monospaced;
     font-weight:bold;
     vertical-align: bottom;
     text-align:center;
-	width: 33%;
+    width: 33%;
+}
+
+td img {
+    height: 100%;
 }
