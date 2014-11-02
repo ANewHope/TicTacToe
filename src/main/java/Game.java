@@ -3,40 +3,38 @@ import java.awt.event.*;
 import javax.swing.*;
 
 public class Game {
-
-    public static String[][] board;
-    public String currPlayer;
+  public Board board;
+  private Content currPlayer;
 
   public Game() {
-
-      board = new String[3][3];
-		currPlayer = "<img src=\"http:\\/\\/oi60.tinypic.com/iz5hud.jpg\">";
-		resetBoard();
+    board = new Board();
+    currPlayer = Content.EX;
+    board.init();
   }
-  public boolean playerMove(int x, int y ){
-        if(x >=  0 && y >=  0 && x < 3 && y < 3){
-		    if(board[x][y] == " "){
-		        board[x][y] = currPlayer;
-		            return true;
-		    }
-		}
-		return false;
-	}
 
-	public void resetBoard(){
-        for(int i = 0; i < 3; i++){
-            for(int j = 0; j < 3; j++){
-                board[i][j] = " ";
-                }
-        }
+  public boolean playerMove(int x, int y) {
+    if(x >= 0 && y >= 0 && x < 3 && y < 3) {
+      if(board.cell[x][y].content == Content.EMPTY) {
+        board.cell[x][y].content = currPlayer;
+        return true;
+      }
     }
+    return false;
+  }
 
-    public void nextPlayer(){
-    if (currPlayer == "<img src=\"http:\\/\\/oi60.tinypic.com/iz5hud.jpg\">") {currPlayer = "<img src=\"http:\\/\\/oi58.tinypic.com/2lxv8s1.jpg\">";}
-    else {currPlayer = "<img src=\"http:\\/\\/oi60.tinypic.com/iz5hud.jpg\">";}
+  public void nextPlayer() {
+    if(currPlayer == Content.EX) {
+      currPlayer = Content.ZERO;
     }
+    else {
+      currPlayer = Content.EX;
+    }
+  }
+
+  public String getPlayer() {
+    return currPlayer.toString();
+  }
   public static void main(String[] args) {
 
   }
 }
-
