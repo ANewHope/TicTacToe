@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class Game {
   public Board board;
-  private Content currPlayer;
+  public Content currPlayer;
 
   public Game() {
     board = new Board();
