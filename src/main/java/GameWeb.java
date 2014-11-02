@@ -10,7 +10,6 @@ public class GameWeb implements SparkApplication {
     if(portNumber != null) {
       setPort(Integer.valueOf(portNumber));
     }
-    //setPort(4566);
     GameWeb.init();
   }
 
@@ -31,22 +30,24 @@ public class GameWeb implements SparkApplication {
       public Object handle(Request request, Response response) {
         Integer x = Integer.valueOf(request.queryParams("first"));
         Integer y = Integer.valueOf(request.queryParams("second"));
-             if (game.currState == State.TIE) {
-               response.status(200);
-               //return "It's a tie";
-               game.init();
-             }
-             if (game.playerMove(x, y)) {
+             if (game.playerMove(x, y) && game.currState == State.ON) {
                     response.status(200);
+                    StringBuilder table = buildTable(game);
+                    if(game.board.checkTie()) {
+                      table.append("<div class=\"alert alert-info\">" + "It's a tie! " + "Reset the board to play again" + "</div>");
+                    }
+                    if(game.board.checkWin()) {
+                      table.append("<div class=\"alert alert-info\">" + game.board.winner.toString() + " has oblitered his opponent. " + "Reset the board to play again" + "</div>");
+                    }
                     game.nextPlayer();
-                    return buildTable(game);
+                    return table;
                 }
             response.status(500);
             return response;
       }
     });
   }
-  public String buildTable(Game game) {
+  public StringBuilder buildTable(Game game) {
 
     StringBuilder tableBoard = new StringBuilder();
         tableBoard.append("<table class=\"table board\" >\n" +
@@ -68,7 +69,7 @@ public class GameWeb implements SparkApplication {
             "                </tr>\n" +
             "                </tbody>\n" +
             "            </table>");
-        return tableBoard.toString();
+        return tableBoard;
 
   }
 }

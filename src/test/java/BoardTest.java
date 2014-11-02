@@ -80,36 +80,33 @@ public class BoardTest {
   public void checkRowWinTest() {
     Board board = new Board();
     board.init();
-    assertEquals(false, board.checkWin(Content.EX));
-    assertEquals(false, board.checkWin(Content.ZERO));
+    assertEquals(false, board.checkWin());
     board.cell[0][0].content = Content.EX;
     board.cell[0][1].content = Content.EX;
     board.cell[0][2].content = Content.EX;
-    assertEquals(true, board.checkWin(Content.EX));
-    assertEquals(false, board.checkWin(Content.ZERO));
+    assertEquals(true, board.checkWin());
+    assertEquals(Content.EX, board.winner);
   }
   @Test
   public void checkColWinTest() {
     Board board = new Board();
     board.init();
-    assertEquals(false, board.checkWin(Content.EX));
-    assertEquals(false, board.checkWin(Content.ZERO));
+    assertEquals(false, board.checkWin());
     board.cell[0][0].content = Content.EX;
     board.cell[1][0].content = Content.EX;
     board.cell[2][0].content = Content.EX;
-    assertEquals(true, board.checkWin(Content.EX));
-    assertEquals(false, board.checkWin(Content.ZERO));
+    assertEquals(true, board.checkWin());
+    assertEquals(Content.EX, board.winner);
   }
   @Test
   public void checkDiagWinTest() {
     Board board = new Board();
     board.init();
-    assertEquals(false, board.checkWin(Content.EX));
-    assertEquals(false, board.checkWin(Content.ZERO));
-    board.cell[0][0].content = Content.EX;
-    board.cell[1][1].content = Content.EX;
-    board.cell[2][2].content = Content.EX;
-    assertEquals(true, board.checkWin(Content.EX));
-    assertEquals(false, board.checkWin(Content.ZERO));
+    assertEquals(false, board.checkWin());
+    board.cell[0][0].content = Content.ZERO;
+    board.cell[1][1].content = Content.ZERO;
+    board.cell[2][2].content = Content.ZERO;
+    assertEquals(true, board.checkWin());
+    assertEquals(Content.ZERO, board.winner);
   }
 }

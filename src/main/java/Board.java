@@ -26,7 +26,7 @@ public class Board {
   }
 
   public boolean checkTie() {
-    if(checkWin(Content.EX) || checkWin(Content.ZERO)) return false;
+    if(checkWin()) return false;
     for(int r = 0; r < ROWS; r++) {
       for(int c = 0; c < COLS; c++) {
         if(cell[r][c].content == Content.EMPTY) {
@@ -37,9 +37,15 @@ public class Board {
     return true;
   }
 
-  public boolean checkWin(Content c) {
-    if(checkRows(c) || checkCols(c) || checkDiags(c)) {
-      winner = c;
+  public boolean checkWin() {
+    Content x = Content.EX;
+    Content o = Content.ZERO;
+    if(checkRows(x) || checkCols(x) || checkDiags(x)) {
+      winner = x;
+      return true;
+    }
+    else if(checkRows(o) || checkCols(o) || checkDiags(o)) {
+      winner = o;
       return true;
     }
     return false;
