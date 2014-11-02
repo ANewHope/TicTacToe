@@ -50,6 +50,10 @@ public class Game {
     return false;
   }
 
+  /**
+  * This method changes the current player to 'x' if
+  * 'o' has finished his turn, and vice versa.
+  */
   public void nextPlayer() {
     if(currPlayer == Content.EX) {
       currPlayer = Content.ZERO;
@@ -59,10 +63,16 @@ public class Game {
     }
   }
 
+  /**
+  * This method return the current player's string
+  */
   public String getPlayer() {
     return currPlayer.toString();
   }
+  
+ /**
+  * This method is here for error fixing purposes only
+  */
   public static void main(String[] args) {
-
   }
 }
