@@ -8,9 +8,9 @@ public class GameWeb implements SparkApplication {
     SparkApplication GameWeb = new GameWeb();
     String portNumber = System.getenv("PORT");
     if(portNumber != null) {
-     // setPort(Integer.valueOf(portNumber));
+      setPort(Integer.valueOf(portNumber));
     }
-    setPort(4566);
+    //setPort(4566);
     GameWeb.init();
   }
 

@@ -1,31 +1,51 @@
-              <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <link rel="stylesheet" type="text/css" href="index.css">
-        </head>
-        <body>
-                <div>
-                        <h1>Búrið</h1>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>TicTacToe</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="index.css">
+		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		 <script src="scripts.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h1>TicTacToe</h1>
+			<div id="Results" class="info"> </div>
+				
+			<div id="boardcontainer">
+				<table class="table board">
+					<tbody>
+					<tr>
+						<td id="00" class="cell"> </td>
+						<td id="01" class="cell"> </td>
+						<td id="02" class="cell"> </td>
+					</tr>
+					<tr>
+						<td id="10" class="cell"> </td>
+						<td id="11" class="cell"> </td>
+						<td id="12" class="cell"> </td>
+					</tr>
+					<tr>
+						<td id="20" class="cell"> </td>
+						<td id="21" class="cell"> </td>
+						<td id="22" class="cell"> </td>
+					</tr>
+					</tbody>
+				</table>
+			</div>								
+			<form method="post" action="/playerMove" role="form" id="playerMoveForm">
+				<div class="form-group">
+					<label for="first">Input X</label>
+					<input type="text" name="first" id="first" class="form-control" placeholder="X">
 
-
-                <table>
-                        <tr>
-                                <td class="Tic" name="box0" id="0"></td>
-                                <td class="Tic" name="box1" id="1"></td>
-                                <td class="Tic" name="box2" id="2"></td>
-                        </tr>
-                        <tr>
-                                <td class="Tic" name="box3" id="3"></td>
-                                <td class="Tic" name="box4" id="4"></td>
-                                <td class="Tic" name="box5" id="5"></td>
-                        </tr>
-                        <tr>
-                                <td class="Tic" name="box6" id="6"></td>
-                                <td class="Tic" name="box7" id="7"></td>
-                                <td class="Tic" name="box8" id="8"></td>
-                        </tr>
-                </table>
-
-                </div>
-        </body>
+					<label for="second">Input Y</label>
+					<input type="text" name="second" id="second" class="form-control" placeholder="Y">
+				</div>
+				<button type="submit" class="btn btn-default">Press Me</button>
+			</form>
+		</div>
+	</body>
 </html>
 
