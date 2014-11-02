@@ -103,9 +103,9 @@ public class BoardTest {
     Board board = new Board();
     board.init();
     assertEquals(false, board.checkWin());
-    board.cell[0][0].content = Content.ZERO;
+    board.cell[2][0].content = Content.ZERO;
     board.cell[1][1].content = Content.ZERO;
-    board.cell[2][2].content = Content.ZERO;
+    board.cell[0][2].content = Content.ZERO;
     assertEquals(true, board.checkWin());
     assertEquals(Content.ZERO, board.winner);
   }

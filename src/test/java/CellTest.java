@@ -4,9 +4,7 @@ import org.junit.Test;
 public class CellTest {
   @Test
   public void constructorTest() {
-    Cell cell = new Cell(2,3);
+    Cell cell = new Cell();
     assertEquals(Content.EMPTY, cell.content);
-    assertEquals(2, cell.row);
-    assertEquals(3, cell.col);
   }
 }

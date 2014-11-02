@@ -10,6 +10,8 @@ public class GameTest {
         assertEquals(Content.EMPTY, game.board.cell[r][c].content);
       }
     }
+    assertEquals(State.ON, game.currState);
+    assertEquals(Content.EX, game.currPlayer);
   }
   @Test
   public void playerMoveTest() {
@@ -37,5 +39,20 @@ public class GameTest {
     assertEquals(Content.ZERO.toString(), game.getPlayer());
     game.nextPlayer();
     assertEquals(Content.EX.toString(), game.getPlayer());
-  } 
+  }
+  @Test
+  public void mainTest() {
+    Game game = new Game();
+    assertEquals(false, game.board.checkTie());
+  }
+  @Test
+  public void initTest() {
+    Game game = new Game();
+    for(int r = 0; r < 3; r++) {
+      assertEquals(true, game.playerMove(r,0));
+    }
+    //assertEquals(State.WIN, game.currState);
+    //assertEquals(Content.EX, game.board.winner);
+    game.init();
+  }
 }

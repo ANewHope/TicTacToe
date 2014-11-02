@@ -11,7 +11,7 @@ public class Board {
     cell = new Cell[rows][cols];
     for(int r = 0; r < rows; r++) {
       for(int c = 0;  c < cols; c++) {
-        cell[r][c] = new Cell(r,c);
+        cell[r][c] = new Cell();
       }
     }
   }
