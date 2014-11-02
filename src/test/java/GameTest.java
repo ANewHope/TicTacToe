@@ -6,8 +6,5 @@ public class GameTest {
 
   @Test
   public void checkGame() {
-    assertEquals(3, game.ROWS);
-    assertEquals(3, game.COLS);
-    assertEquals(150, game.CELL_SIZE);
   }
 }
