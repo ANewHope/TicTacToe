@@ -68,3 +68,5 @@ jar{
         attributes("Main-Class": "GameWeb")
     }
 }
+
+task stage { dependsOn installApp }
