@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="BoardTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2014-11-02T15:10:47" hostname="i-c39488ed" time="0.015">
+<testsuite name="BoardTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2014-11-04T13:15:49" hostname="i-c39488ed" time="0.018">
   <properties/>
-  <testcase name="checkColWinTest" classname="BoardTest" time="0.001"/>
+  <testcase name="checkColWinTest" classname="BoardTest" time="0.006"/>
   <testcase name="checkRowsTest" classname="BoardTest" time="0.001"/>
-  <testcase name="checkTieTest" classname="BoardTest" time="0.002"/>
-  <testcase name="checkDiagsTest" classname="BoardTest" time="0.001"/>
+  <testcase name="checkTieTest" classname="BoardTest" time="0.001"/>
+  <testcase name="checkDiagsTest" classname="BoardTest" time="0.0"/>
   <testcase name="checkDiagWinTest" classname="BoardTest" time="0.001"/>
-  <testcase name="initTestEmptyBoard" classname="BoardTest" time="0.0"/>
+  <testcase name="initTestEmptyBoard" classname="BoardTest" time="0.001"/>
   <testcase name="checkRowWinTest" classname="BoardTest" time="0.0"/>
   <testcase name="checkColsTest" classname="BoardTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>

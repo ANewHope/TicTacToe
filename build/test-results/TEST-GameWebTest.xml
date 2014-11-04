@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="GameWebTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2014-11-02T15:10:57" hostname="i-c39488ed" time="43.312">
+<testsuite name="GameWebTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2014-11-04T13:16:01" hostname="i-c39488ed" time="44.138">
   <properties/>
-  <testcase name="testClear" classname="GameWebTest" time="38.474"/>
-  <testcase name="testTitle" classname="GameWebTest" time="4.836"/>
+  <testcase name="testClear" classname="GameWebTest" time="39.295"/>
+  <testcase name="testTitle" classname="GameWebTest" time="4.841"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -50,20 +50,30 @@ public class Game {
 <span class="fc" id="L50">    return false;</span>
   }
 
+  /**
+  * This method changes the current player to 'x' if
+  * 'o' has finished his turn, and vice versa.
+  */
   public void nextPlayer() {
-<span class="fc bfc" id="L54" title="All 2 branches covered.">    if(currPlayer == Content.EX) {</span>
-<span class="fc" id="L55">      currPlayer = Content.ZERO;</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">    if(currPlayer == Content.EX) {</span>
+<span class="fc" id="L59">      currPlayer = Content.ZERO;</span>
     }
     else {
-<span class="fc" id="L58">      currPlayer = Content.EX;</span>
+<span class="fc" id="L62">      currPlayer = Content.EX;</span>
     }
-<span class="fc" id="L60">  }</span>
+<span class="fc" id="L64">  }</span>
 
+  /**
+  * This method return the current player's string
+  */
   public String getPlayer() {
-<span class="fc" id="L63">    return currPlayer.toString();</span>
+<span class="fc" id="L70">    return currPlayer.toString();</span>
   }
+  
+ /**
+  * This method is here for error fixing purposes only
+  */
   public static void main(String[] args) {
-
-<span class="nc" id="L67">  }</span>
+<span class="nc" id="L77">  }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span></div></body></html>

@@ -13,44 +13,67 @@ import spark.servlet.SparkApplication;
 <span class="nc" id="L13">    GameWeb.init();</span>
 <span class="nc" id="L14">  }</span>
 
+ /**
+  * This method initializes the web application (using Spark)
+  * It creates an instance of the Game Class, and sends 
+  * information about the board and all player moves 
+  * to the site - 
+  * Doing this enables the user to edit information 
+  * that is displayed instantly on the application.
+  */
   public void init() {
-<span class="nc" id="L17">    final Game game = new Game();</span>
+<span class="nc" id="L25">    final Game game = new Game();</span>
 
-<span class="nc" id="L19">    post(new Route (&quot;/init&quot;) {</span>
+    // This route resets the game board when the user clicks the button
+<span class="nc" id="L28">    post(new Route (&quot;/init&quot;) {</span>
          @Override
             public Object handle(Request request, Response response) {
-<span class="nc" id="L22">                response.status(200);</span>
-<span class="nc" id="L23">                game.init();</span>
-<span class="nc" id="L24">                return buildTable(game);</span>
+<span class="nc" id="L31">                response.status(200);</span>
+<span class="nc" id="L32">                game.init();</span>
+<span class="nc" id="L33">                return buildTable(game);</span>
             }
          });
-
-<span class="nc" id="L28">    post(new Route(&quot;/playerMove&quot;) {</span>
+    // This route takes in input from the user, x and y coordinates
+    // It then evaluates the input, and the game's state
+    // If the input is legal, a new board with the recent
+    // user input is created and displayed.
+    // If there is a tie, or either player has won, a message
+    // is displayed below the board.
+    // If the game is still going, the method changes
+    // the player and can run again.
+<span class="nc" id="L44">    post(new Route(&quot;/playerMove&quot;) {</span>
       @Override
       public Object handle(Request request, Response response) {
-<span class="nc" id="L31">        Integer x = Integer.valueOf(request.queryParams(&quot;first&quot;));</span>
-<span class="nc" id="L32">        Integer y = Integer.valueOf(request.queryParams(&quot;second&quot;));</span>
-<span class="nc bnc" id="L33" title="All 4 branches missed.">             if (game.playerMove(x, y) &amp;&amp; game.currState == State.ON) {</span>
-<span class="nc" id="L34">                    StringBuilder table = buildTable(game);</span>
-<span class="nc" id="L35">                    response.status(200);</span>
-<span class="nc bnc" id="L36" title="All 2 branches missed.">                    if(game.board.checkTie()) {</span>
-<span class="nc" id="L37">                      table.append(&quot;&lt;div id=\&quot;Results\&quot;&gt;&quot; + &quot;It's a tie! &quot; + &quot;Reset the board to play again&quot; + &quot;&lt;/div&gt;&quot;);</span>
+<span class="nc" id="L47">        Integer x = Integer.valueOf(request.queryParams(&quot;first&quot;));</span>
+<span class="nc" id="L48">        Integer y = Integer.valueOf(request.queryParams(&quot;second&quot;));</span>
+<span class="nc bnc" id="L49" title="All 4 branches missed.">             if (game.playerMove(x, y) &amp;&amp; game.currState == State.ON) {</span>
+<span class="nc" id="L50">                    StringBuilder table = buildTable(game);</span>
+<span class="nc" id="L51">                    response.status(200);</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">                    if(game.board.checkTie()) {</span>
+<span class="nc" id="L53">                      table.append(&quot;&lt;div id=\&quot;Results\&quot;&gt;&quot; + &quot;It's a tie! &quot; + &quot;Reset the board to play again&quot; + &quot;&lt;/div&gt;&quot;);</span>
                     }
-<span class="nc bnc" id="L39" title="All 2 branches missed.">                    if(game.board.checkWin()) {</span>
-<span class="nc" id="L40">                      table.append(&quot;&lt;div id=\&quot;Results\&quot;&gt;&quot; + game.board.winner.toString() + &quot; has obliterated his opponent. &quot; + &quot;Reset the board to play again&quot; + &quot;&lt;/div&gt;&quot;);</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">                    if(game.board.checkWin()) {</span>
+<span class="nc" id="L56">                      table.append(&quot;&lt;div id=\&quot;Results\&quot;&gt;&quot; + game.board.winner.toString() + &quot; has obliterated his opponent. &quot; + &quot;Reset the board to play again&quot; + &quot;&lt;/div&gt;&quot;);</span>
                     }
-<span class="nc" id="L42">                    game.nextPlayer();</span>
-<span class="nc" id="L43">                    return table;</span>
+<span class="nc" id="L58">                    game.nextPlayer();</span>
+<span class="nc" id="L59">                    return table;</span>
                 }
-<span class="nc" id="L45">            response.status(500);</span>
-<span class="nc" id="L46">            return response;</span>
+<span class="nc" id="L61">            response.status(500);</span>
+<span class="nc" id="L62">            return response;</span>
       }
     });
-<span class="nc" id="L49">  }</span>
+<span class="nc" id="L65">  }</span>
+ /**
+  * This method creates the game board and all it's cells along with content
+  * and returns a StringBuilder containing the board in HTML format
+  *
+  * @param  game  the current game instance
+  * @return StringBuilder HTML-formatted board
+  */ 
   public StringBuilder buildTable(Game game) {
 
-<span class="nc" id="L52">    StringBuilder tableBoard = new StringBuilder();</span>
-<span class="nc" id="L53">        tableBoard.append(&quot;&lt;table class=\&quot;table board\&quot; &gt;\n&quot; +</span>
+<span class="nc" id="L75">    StringBuilder tableBoard = new StringBuilder();</span>
+<span class="nc" id="L76">        tableBoard.append(&quot;&lt;table class=\&quot;table board\&quot; &gt;\n&quot; +</span>
             &quot;                &lt;tbody&gt;\n&quot; +
             &quot;                &lt;tr&gt;\n&quot; +
             &quot;                    &lt;td id=\&quot;00\&quot; class=\&quot;cell\&quot;&gt;&quot;+ game.board.cell[0][0].content.toString() +&quot;&lt;/td&gt;\n&quot; +
@@ -69,7 +92,7 @@ import spark.servlet.SparkApplication;
             &quot;                &lt;/tr&gt;\n&quot; +
             &quot;                &lt;/tbody&gt;\n&quot; +
             &quot;            &lt;/table&gt;&quot;);
-<span class="nc" id="L72">        return tableBoard;</span>
+<span class="nc" id="L95">        return tableBoard;</span>
 
   }
 }
