@@ -30,6 +30,7 @@ public class GameWebTest {
   @Test
   public void testClear() throws Exception {
     driver.get("http://pacific-temple-3094.herokuapp.com/");
+    driver.findElement(By.cssSelector("#resetForm > button.btn.btn-default")).click();
     driver.findElement(By.id("first")).clear();
     driver.findElement(By.id("first")).sendKeys("1");
     driver.findElement(By.id("second")).clear();

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="GameTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2014-11-04T13:15:49" hostname="i-c39488ed" time="0.037">
+<testsuite name="GameTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2014-11-04T13:48:51" hostname="i-c39488ed" time="0.048">
   <properties/>
-  <testcase name="constructorTest" classname="GameTest" time="0.02"/>
-  <testcase name="mainTest" classname="GameTest" time="0.001"/>
-  <testcase name="initTest" classname="GameTest" time="0.0"/>
-  <testcase name="playerMoveTest" classname="GameTest" time="0.004"/>
+  <testcase name="constructorTest" classname="GameTest" time="0.026"/>
+  <testcase name="mainTest" classname="GameTest" time="0.009"/>
+  <testcase name="initTest" classname="GameTest" time="0.001"/>
+  <testcase name="playerMoveTest" classname="GameTest" time="0.001"/>
   <testcase name="nextPlayerTest" classname="GameTest" time="0.001"/>
   <testcase name="getPlayerTest" classname="GameTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
